@@ -8,14 +8,18 @@ use Illuminate\Support\Facades\DB;
 
 class questionController extends Controller
 {
-    public function ask(){
-        public function ask(){
-            $user = Auth::user();       //ログイン中のユーザーのデータ
-            $userID = $user['U_id'];    //ユーザーID
-            $noteID = Request::input(noteID);                    //ノートIDを入れる
-            $content = Request::input(content);                   //質問内容を入れる
+    public function ask()
+    {
+        $user = Auth::user();                                      //ログイン中のユーザーのデータ
+        $user_id = $user['user_id'];                               //ユーザーID
+        $note_id = Request::input(noteID);                    //ノートIDを入れる
+        $context = Request::input(context);                   //質問内容を入れる
 
-            DB::INSERT("insert into データベース () value (?,?,?)",[$userID,$noteID,$content]);
+        //DBにuser_id note_id contextを格納
+        DB::INSERT("insert into questions (note_id,user_id,context) value (?,?,?)", [$user_id, $note_id, $context]);
 
-        }
+        return ;
+    }
+
+   
 }
