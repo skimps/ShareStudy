@@ -16,7 +16,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', 'timetableController@showTimetable');
+Route::get('/', 'timetableController@show');
+
+Route::get('/','')
+
+
 
 
 =======
