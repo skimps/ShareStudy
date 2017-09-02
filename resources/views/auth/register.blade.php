@@ -41,9 +41,40 @@
 
                             <div class="form-group{{ $errors->has('class_id') ? ' has-error' : '' }}">
                                 <label for="class_id" class="col-md-4 control-label">Class</label>
-
                                 <div class="col-md-6">
-                                    <input id="class_id" type="text" class="form-control" name="class_id" required>
+                                    <select name="class_id" class="custom-select">
+                                        <option value="" selected="selected" disabled>選択してください</option>
+                                        <option value="1A">1A</option>
+                                        <option value="1B">1B</option>
+                                        <option value="1C">1C</option>
+                                        <option value="1D">1D</option>
+                                        <option value="1E">1E</option>
+                                        <option value="1F">1F</option>
+                                        <option value="1G">1G</option>
+                                        <option value="1H">1H</option>
+                                        <option value="2A">2A</option>
+                                        <option value="2B">2B</option>
+                                        <option value="2C">2C</option>
+                                        <option value="2D">2D</option>
+                                        <option value="2E">2E</option>
+                                        <option value="2F">2F</option>
+                                        <option value="2G">2G</option>
+                                        <option value="2H">2H</option>
+                                        <option value="3A">3A</option>
+                                        <option value="3B">3B</option>
+                                        <option value="3C">3C</option>
+                                        <option value="3D">3D</option>
+                                        <option value="3E">3E</option>
+                                        <option value="3F">3F</option>
+                                        <option value="3G">3G</option>
+                                        <option value="4A">4A</option>
+                                        <option value="4B">4B</option>
+                                        <option value="4C">4C</option>
+                                        <option value="4D">4D</option>
+                                        <option value="4E">4E</option>
+                                        <option value="4F">4F</option>
+                                        <option value="4G">4G</option>
+                                    </select>
                                     @if ($errors->has('class_id'))
                                         <span class="help-block">
                                         <strong>{{ $errors->first('class_id') }}</strong>
