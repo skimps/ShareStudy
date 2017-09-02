@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <?php
 
 /*
@@ -24,6 +25,8 @@ Route::get('/','')
 
 
 =======
+=======
+>>>>>>> 7078dd0dfdeaf29eefb7997593abf1f2407f21ba
 <?php
 
 /*
@@ -46,4 +49,3 @@ Route::get('/NoteEditing','NoteEditingController@PushEditedData');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
->>>>>>> d7c09c34187c3d02cdd36a0fe9b33030956adab5
