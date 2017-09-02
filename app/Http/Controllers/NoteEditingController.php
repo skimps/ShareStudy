@@ -41,7 +41,10 @@ class NoteEditingController extends Controller
            throw new Exception("id={$note_id}の行は存在しません!!error!!!<br>");
            
        //ノートを上書き
-       Note::where('id',$note_id)->update(['text'=>$note_str]);    
+       Note::where('id',$note_id)->update(['text'=>$note_str]);   
+       
+       //TODO
+       //ここでViewを返す予定
     }
     
         
@@ -54,5 +57,8 @@ class NoteEditingController extends Controller
        
        //ノート生成
        Note::create(['class_id'=>$class_id,'text'=>$note_str]);
+       
+       //TODO
+       //ここでViewを返す予定
     }
 }
