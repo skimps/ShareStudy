@@ -10,30 +10,36 @@ use DB;
 class NoteEditingController extends Controller
 {   
     
+    //全てのNoteモデルを得る
     public function GetAllNote(){
         return Note::all();
     }
-    //編集したノートを使ってデータベースへプッシュする
-    public function PushEditedData($note_id=127,$class_id=1,$note_str='foobar'){
+    
+    //主キーを指定してNoteを得る
+    public function GetNote($note_id,$class_id){
+        return Note::where('N_id',$note_id)->first();
+    }
+    
+    //主キーを指定してNoteを削除する
+    public function DeleteNote($note_id,$class_id){
+        Note::where('N_id',$note_id)->delete();
+    }
+    
+    //編集したノートをデータベースへプッシュする
+    //$note_idにNULLを指定で新規行作成
+    public function PushEditedData($note_id=132,$class_id=1,$note_str='foobee'){
+
         //note_idがnullならば新規に行を追加する
         if($note_id===NULL){
-              echo("新規に行を挿入します<br>");
               Note::create(['C_id'=>$class_id,'text'=>$note_str]);
               return;
         }
             
-       $count=Note::where('N_id',$note_id)->count();
-       if($count<=0){
-           echo("N_id={$note_id}の行は存在しません!!error!!!<br>");
-           return;
-       }
-       else{
-            echo("N_id={$note_id}の行が存在するので上書きします<br>");
-            Note::where('N_id',$note_id)->update(['text'=>$note_str]);
-       }
-       foreach($this->GetAllNote() as $text){
-           echo $text.'<br>';
-       }
-       
+       //存在しないN_idなら例外を吐く
+       if(Note::where('N_id',$note_id)->count()<=0)
+           throw new Exception("N_id={$note_id}の行は存在しません!!error!!!<br>");
+           
+       //データベースのノートを更新する
+       Note::where('N_id',$note_id)->update(['text'=>$note_str]);    
     }
 }
