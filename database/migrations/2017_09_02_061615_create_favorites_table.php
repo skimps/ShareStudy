@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateQuestionTable extends Migration
+class CreateFavoritesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateQuestionTable extends Migration
      */
     public function up()
     {
-        Schema::create('question', function (Blueprint $table) {
-            $table->increments('Q_id');
-            $table->integer('N_id');
-            $table->longText('context');
+        Schema::create('favorites', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('users_id');
+            $table->integer('note_id');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateQuestionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('question');
+        Schema::dropIfExists('favorites');
     }
 }

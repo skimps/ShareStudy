@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNoteTable extends Migration
+class CreateAnswersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateNoteTable extends Migration
      */
     public function up()
     {
-        Schema::create('note', function (Blueprint $table) {
-            $table->increments('N_id');
-            $table->integer('C_id');
-            $table->longText('text');
+        Schema::create('answers', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('question_id');
+            $table->integer('user_id');
+            $table->string('content');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateNoteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('note');
+        Schema::dropIfExists('answers');
     }
 }
