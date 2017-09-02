@@ -18,6 +18,7 @@ Route::get('/', function () {
 Route::get('/NoteEditing','NoteEditingController@PushEditedData');
 Route::get('/timetables', 'timetableController@show');
 Route::get('/questions', 'questionController@ask');
+Route::get('/questions', 'questionController@answer');
 
 Auth::routes();
 
