@@ -15,12 +15,6 @@ class NoteEditingController extends Controller
     private function IsExsistNote($note_id){
         return Note::where('id',$note_id)->count()!=0;
     }
-
-
-    //全てのNoteモデルを得る
-    public function GetAllNote(){
-        return Note::all();
-    }
     
     //主キーを指定してNoteを得る
     public function GetNote($note_id){
