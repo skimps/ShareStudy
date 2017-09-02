@@ -15,6 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/NoteEditing','NoteEditingController@PushEditedData');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
