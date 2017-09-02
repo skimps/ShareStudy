@@ -11,12 +11,10 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Route::get('/NoteEditing','NoteEditingController@PushEditedData');
-Route::get('/', 'timetableController@show');
+Route::get('/timetable', 'timetableController@show');
 
 Auth::routes();
 

@@ -31,7 +31,7 @@ class NoteEditingController extends Controller
 
         //note_idがnullならば新規に行を追加する
         if($note_id===NULL){
-              Note::create(['C_id'=>$class_id,'text'=>$note_str]);
+              Note::create(['class_id'=>$class_id,'text'=>$note_str]);
               return;
         }
             

@@ -10,9 +10,6 @@ class questionController extends Controller
 {
     public function ask(){
         $user = Auth::user();       //ログイン中のユーザーのデータ
-        $userID = $user['U_id'];    //ユーザーID
-
-
 
 
 
