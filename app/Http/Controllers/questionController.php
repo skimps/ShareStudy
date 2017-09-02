@@ -18,7 +18,7 @@ class questionController extends Controller
         //DBに user_id note_id contextを格納
         DB::INSERT("insert into questions (note_id,user_id,context) value (?,?,?)", [ $note_id,$user_id,$context]);
 
-        return view('/');
+        return view('/notes/{id}');
     }
     public function answer()
     {
@@ -30,7 +30,7 @@ class questionController extends Controller
         //DBに question_id user_id content を格納
         DB::INSERT("insert into answers (question_id,user_id,content) value (?,?,?)", [$question_id,$user_id,$content]);
 
-        return view('/');
+        return view('/notes/{id}');
     }
     public function showQuestionNotes()
     {
