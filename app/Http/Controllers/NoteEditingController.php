@@ -36,6 +36,4 @@ class NoteEditingController extends Controller
        }
        
     }
-    
-
 }
