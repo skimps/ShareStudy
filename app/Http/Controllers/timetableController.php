@@ -6,16 +6,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
+use App\User;
+use App\Timetable;
+
 class timetableController extends Controller
 {
-    public function show(){
-        $user = Auth::user();       //ログイン中のユーザーのデータ
-        $class = $user['C_id'];     //ユーザーのクラス
-        $timetable = array();       //空配列
-        for($day=1;$day<6;$day++){
-            $list =  DB::select("select * from データベース where C_id = ?,day = ?", [$class, $day]);    //ユーザーのクラスの曜日ごとの時間割
-            $timetable += array($day=>array_slice($list,3));                         //時間割を順番に配列に格納
-        }
-        return json_encode($timetable);
+    public function index(){
+        // $user = Auth::user();       //ログイン中のユーザーのデータ
+        // $class = $user['class_id'];  //ユーザーのクラス
+        // var_dump($user);
+        $data["timetable"] = Timetable::all();
+
+        // var_dump($data["timetable"]);
+
+        return view('timetable')->with('data', $data["timetable"]);
     }
 }
