@@ -12,7 +12,7 @@
 */
 
 
-
+Route::get('/NoteListShow/{class_id}','NoteListShowController@GetAllNoteInClass');
 Route::get('/NoteEditing','NoteEditingController@PushEditedData');
 Route::get('/timetable', 'timetableController@index');
 Route::get('/question', 'questionsController@ask');
