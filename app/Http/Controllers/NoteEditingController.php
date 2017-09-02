@@ -26,6 +26,9 @@ class NoteEditingController extends Controller
         if($this->IsExsistNote($note_id)==false)
             throw new Exception("id={$note_id}の行は存在しません!!error!!!<br>");
         Note::where('id',$note_id)->delete();
+        
+        //TODO
+        //Viewを返す
     }
     
     //編集したノートをデータベースへ上書き保存する
