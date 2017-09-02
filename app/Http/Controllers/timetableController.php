@@ -11,12 +11,14 @@ use App\Timetable;
 
 class timetableController extends Controller
 {
-    public function show(){
+    public function index(){
         // $user = Auth::user();       //ログイン中のユーザーのデータ
         // $class = $user['class_id'];  //ユーザーのクラス
         // var_dump($user);
-        $timetable = Timetable::all();
+        $data["timetable"] = Timetable::all();
 
-        return json_encode($timetable);
+        // var_dump($data["timetable"]);
+
+        return view('timetable')->with('data', $data["timetable"]);
     }
 }

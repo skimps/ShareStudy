@@ -14,7 +14,7 @@
 
 
 Route::get('/NoteEditing','NoteEditingController@PushEditedData');
-Route::get('/timetable', 'timetableController@show');
+Route::get('/timetable', 'timetableController@index');
 
 Auth::routes();
 
