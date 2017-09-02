@@ -1,0 +1,38 @@
+table {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 24px;
+    text-align: center;
+    background: white;
+    border-color: #d3e0e9;
+}
+
+th {
+    width: 18%;
+    text-align: center;
+    border-right: 1px solid black;
+}
+
+td:nth-child(2n) {
+    background: #eee;
+}
+
+td:hover {
+    background: #aaa;
+}
+
+tr {
+    height: 100px;
+}
+
+.top {
+    border-bottom: 1px solid black;
+}
+
+.top td:hover {
+    background: white !important;
+}
+
+.top td:nth-child(2n):hover {
+    background: #eee !important;
+}

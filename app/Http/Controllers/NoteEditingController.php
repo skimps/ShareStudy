@@ -15,12 +15,6 @@ class NoteEditingController extends Controller
     private function IsExsistNote($note_id){
         return Note::where('id',$note_id)->count()!=0;
     }
-
-
-    //全てのNoteモデルを得る
-    public function GetAllNote(){
-        return Note::all();
-    }
     
     //主キーを指定してNoteを得る
     public function GetNote($note_id){
@@ -32,6 +26,9 @@ class NoteEditingController extends Controller
         if($this->IsExsistNote($note_id)==false)
             throw new Exception("id={$note_id}の行は存在しません!!error!!!<br>");
         Note::where('id',$note_id)->delete();
+        
+        //TODO
+        //Viewを返す
     }
     
     //編集したノートをデータベースへ上書き保存する
@@ -41,7 +38,10 @@ class NoteEditingController extends Controller
            throw new Exception("id={$note_id}の行は存在しません!!error!!!<br>");
            
        //ノートを上書き
-       Note::where('id',$note_id)->update(['text'=>$note_str]);    
+       Note::where('id',$note_id)->update(['text'=>$note_str]);   
+       
+       //TODO
+       //ここでViewを返す予定
     }
     
         
@@ -54,5 +54,8 @@ class NoteEditingController extends Controller
        
        //ノート生成
        Note::create(['class_id'=>$class_id,'text'=>$note_str]);
+       
+       //TODO
+       //ここでViewを返す予定
     }
 }
