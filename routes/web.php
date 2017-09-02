@@ -11,11 +11,15 @@
 |
 */
 
+Auth::routes();
+
+Route::get('/', 'TopController@index');
+
 
 
 Route::get('/NoteEditing','NoteEditingController@PushEditedData');
 Route::get('/timetable', 'timetableController@index');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
+
+
