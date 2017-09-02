@@ -17,17 +17,17 @@ class NoteEditingController extends Controller
     
     //主キーを指定してNoteを得る
     public function GetNote($note_id,$class_id){
-        return Note::where('N_id',$note_id)->first();
+        return Note::where('id',$note_id)->first();
     }
     
     //主キーを指定してNoteを削除する
     public function DeleteNote($note_id,$class_id){
-        Note::where('N_id',$note_id)->delete();
+        Note::where('id',$note_id)->delete();
     }
     
     //編集したノートをデータベースへプッシュする
     //$note_idにNULLを指定で新規行作成
-    public function PushEditedData($note_id=132,$class_id=1,$note_str='foobee'){
+    public function PushEditedData($note_id=NULL,$class_id=1,$note_str='foobee'){
 
         //note_idがnullならば新規に行を追加する
         if($note_id===NULL){
@@ -36,10 +36,10 @@ class NoteEditingController extends Controller
         }
             
        //存在しないN_idなら例外を吐く
-       if(Note::where('N_id',$note_id)->count()<=0)
-           throw new Exception("N_id={$note_id}の行は存在しません!!error!!!<br>");
+       if(Note::where('id',$note_id)->count()<=0)
+           throw new Exception("id={$note_id}の行は存在しません!!error!!!<br>");
            
        //データベースのノートを更新する
-       Note::where('N_id',$note_id)->update(['text'=>$note_str]);    
+       Note::where('id',$note_id)->update(['text'=>$note_str]);    
     }
 }
