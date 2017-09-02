@@ -15,6 +15,9 @@
 
 Route::get('/NoteEditing','NoteEditingController@PushEditedData');
 Route::get('/timetable', 'timetableController@index');
+Route::get('/question', 'questionsController@ask');
+Route::get('/question', 'questionsController@answer');
+Route::get('/question', 'questionsController@showQuestionNotes');
 
 Auth::routes();
 
