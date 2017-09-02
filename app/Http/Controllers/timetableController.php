@@ -16,6 +16,7 @@ class timetableController extends Controller
             $list =  DB::select("select * from データベース where C_id = ?,day = ?", [$class, $day]);    //ユーザーのクラスの曜日ごとの時間割
             $timetable += array($day=>array_slice($list,3));                         //時間割を順番に配列に格納
         }
-        return json_encode($timetable);
+        $jsonTimetable = json_encode($timetable);
+        return $jsonTimetable;
     }
 }
