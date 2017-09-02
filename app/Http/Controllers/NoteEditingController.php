@@ -1,3 +1,50 @@
+<<<<<<< HEAD
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+use App\Note;
+use DB;
+
+//ノート編集ページのコントローラ
+class NoteEditingController extends Controller
+{   
+    
+    //全てのNoteモデルを得る
+    public function GetAllNote(){
+        return Note::all();
+    }
+    
+    //主キーを指定してNoteを得る
+    public function GetNote($note_id,$class_id){
+        return Note::where('N_id',$note_id)->first();
+    }
+    
+    //主キーを指定してNoteを削除する
+    public function DeleteNote($note_id,$class_id){
+        Note::where('N_id',$note_id)->delete();
+    }
+    
+    //編集したノートをデータベースへプッシュする
+    //$note_idにNULLを指定で新規行作成
+    public function PushEditedData($note_id=132,$class_id=1,$note_str='foobee'){
+
+        //note_idがnullならば新規に行を追加する
+        if($note_id===NULL){
+              Note::create(['C_id'=>$class_id,'text'=>$note_str]);
+              return;
+        }
+            
+       //存在しないN_idなら例外を吐く
+       if(Note::where('N_id',$note_id)->count()<=0)
+           throw new Exception("N_id={$note_id}の行は存在しません!!error!!!<br>");
+           
+       //データベースのノートを更新する
+       Note::where('N_id',$note_id)->update(['text'=>$note_str]);    
+    }
+}
+=======
 <?php
 
 namespace App\Http\Controllers;
@@ -37,3 +84,4 @@ class NoteEditingController extends Controller
        
     }
 }
+>>>>>>> b5d5767789e9e11faa0d691c45ab0d9faaa1dc31
