@@ -14,6 +14,7 @@ class NoteTableSeeder extends Seeder
         //
         DB::table('notes')->insert([
             'class_id' => 1,
+            'title' => str_random(50),
             'text' => str_random(50),
         ]);
     }

@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(TimetableTableSeeder::class);
         $this->call(NoteTableSeeder::class);
+        $this->call(QuestionTableSeeder::class);
     }
 }

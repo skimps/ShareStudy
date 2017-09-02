@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use App\User;
 
 class questionController extends Controller
 {
     public function ask()
     {
-        $user = Auth::user();       //ログイン中のユーザーのデータ
+        // $user = Auth::user();       //ログイン中のユーザーのデータ
+        $user = User::find(1);
         $user_id = $user['user_id'];
         $note_id = Request::input(note_id);
         $context = Request::input(context);
@@ -32,13 +34,15 @@ class questionController extends Controller
 
         return view('/notes/{id}');
     }
-    public function showQuestionNotes()
+    public function showQuestionNotes(Request $request)
     {
+        $note_id = $request["name"];
+        $ask_data = DB::SELECT("select * from questions where note_id = " . $note_id);
+        $answer_data = DB::SELECT("select * from answers where question_id = " . $ask_data[0]->id);
 
-        $ask_data = DB::SELECT("select * from questions where note_id = ?",[note_id]);
-
-        $answer_data = DB::SELECT("select * from answers where question_id = ?",[question_id]);
-
-        return view('/notes/{id}')->with('ask_data','answer_data',[$ask_data,$answer_data]);
+        return response()->json([
+            'ask_data' => $ask_data,
+            'answer_data' => $answer_data
+        ]);
     }
 }

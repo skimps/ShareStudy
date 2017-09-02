@@ -25,6 +25,10 @@ tr {
     height: 100px;
 }
 
+.navbar {
+    margin-bottom: 0 !important;
+}
+
 .top {
     border-bottom: 1px solid black;
 }
@@ -35,4 +39,46 @@ tr {
 
 .top td:nth-child(2n):hover {
     background: #eee !important;
+}
+
+.note-container {}
+
+.note-title {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    background: #747c7e;
+    color: white;
+    padding: 24px 0;
+    align-items: flex-end;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.note-edit-move {
+    margin-right: 30px;
+    padding: 15px 30px;
+    font-size: 18px;
+    background: #eee;
+    border-radius: 10px;
+}
+
+.note-title h2 {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 40px;
+}
+
+.note-content {
+    max-width: 1280px;
+    width: 100%;
+    margin: 60px auto 0;
+    font-size: 24px;
+}
+
+.note-edit-area {
+    width: 100%;
+    height: 1000px;
+    overflow-y: scroll;
 }

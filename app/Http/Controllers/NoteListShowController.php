@@ -11,10 +11,11 @@ class NoteListShowController extends Controller
     //クラスの全てのNoteリストを得る
     public function GetAllNoteInClass($class_id){
       $note_list= Note::where('class_id',$class_id)->get();
-      foreach ($note_list as $item)
-          echo $item->text.'<br>';
+    //   foreach ($note_list as $item)
+    //       echo $item->text.'<br>';
       //TODO
       //Viewを返す
+      return view('note/index')->with('note_list', $note_list);
     }
     //指定のノートを得る
     public function GetNote($note_id){

@@ -16,12 +16,13 @@ Auth::routes();
 Route::get('/', 'TopController@index');
 
 
-Route::get('/NoteListShow/{class_id}','NoteListShowController@GetAllNoteInClass');
-Route::get('/NoteEditing','NoteEditingController@PushEditedData');
+Route::get('/notes/{class_id}','NoteListShowController@GetAllNoteInClass');
+Route::get('/notes/{class_id}/edit','NoteEditingController@show');
+Route::post('/NoteEditing','NoteEditingController@OverwriteEditedNote');
 Route::get('/timetable', 'timetableController@index');
-Route::get('/question', 'questionsController@ask');
-Route::get('/question', 'questionsController@answer');
-Route::get('/question', 'questionsController@showQuestionNotes');
+// Route::get('/question', 'questionController@ask');
+// Route::get('/question', 'questionController@answer');
+Route::get('/question', 'questionController@showQuestionNotes');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
